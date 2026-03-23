@@ -1,0 +1,10 @@
+{
+  "name": "geo-transit-demo",
+  "version": "0.1.0",
+  "private": true,
+  "workspaces": ["frontend", "backend"],
+  "scripts": {
+    "dev": "docker compose up",
+    "dev:down": "docker compose down"
+  }
+}

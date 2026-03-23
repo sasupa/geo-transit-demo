@@ -1,0 +1,16 @@
+services:
+  postgis:
+    image: postgis/postgis:16-3.4
+    container_name: geo-transit-postgis
+    ports:
+      - "5435:5432"
+    environment:
+      POSTGRES_DB: geotransit
+      POSTGRES_USER: geoadmin
+      POSTGRES_PASSWORD: geopassword
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./db/init:/docker-entrypoint-initdb.d
+
+volumes:
+  pgdata:
