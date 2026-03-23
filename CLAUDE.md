@@ -10,9 +10,25 @@ A Helsinki transit map demo showcasing PostGIS spatial queries, HSL Digitransit 
 - Infra: Docker Compose
 
 ## Dev commands
-(fill in as project develops)
+- `npm run dev` — docker compose up (PostGIS)
+- `cd backend && npm run dev` — backend dev server (ts-node-dev, hot reload)
+- `cd backend && npm run seed` — fetch all HSL stops from Digitransit and upsert into PostGIS
+- `cd frontend && npm run dev` — Vite dev server
 
 ## Ports
-- Frontend: 5173
+- Frontend dev: 5173
+- Frontend prod (nginx): 5174
 - Backend: 3001
 - PostgreSQL+PostGIS: 5435 (avoid conflicts with existing 5432/5433/5434)
+
+## Deploy
+- Push to main → GitHub Actions triggers automatically
+- Build job: TypeScript typecheck + frontend Vite build
+- Deploy job: SSH to server → git pull → docker compose up -d --build
+- Server path: /var/www/geo.artmin.fi
+- Live URL: https://geo.artmin.fi
+
+## GitHub Secrets required
+- `SERVER_HOST` — server IP or hostname
+- `SERVER_USER` — SSH username
+- `SERVER_SSH_KEY` — private key (ed25519)
