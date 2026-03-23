@@ -11,7 +11,7 @@ import 'maplibre-gl/dist/maplibre-gl.css';
 import StopPopup from './StopPopup';
 import MapControls from './MapControls';
 
-const MAP_STYLE = 'https://tiles.stadiamaps.com/styles/alidade_smooth_dark.json';
+const MAP_STYLE = 'https://tiles.openfreemap.org/styles/liberty';
 
 const HELSINKI_CENTER = { longitude: 24.9414, latitude: 60.1718, zoom: 12 };
 
@@ -66,7 +66,7 @@ export default function Map() {
 
     setLoading(true);
     try {
-      const res = await fetch(`http://localhost:3001/api/stops?bbox=${bbox}`);
+      const res = await fetch(`/api/stops?bbox=${bbox}`);
       if (!res.ok) throw new Error(`API error ${res.status}`);
       const data: GeoJSON.FeatureCollection = await res.json();
       setStopsGeoJSON(data);

@@ -53,7 +53,7 @@ export default function StopPopup({ gtfsId, stopName, stopCode }: Props) {
     setDepartures(null);
     setError(null);
 
-    fetch(`http://localhost:3001/api/departures/${encodeURIComponent(gtfsId)}`)
+    fetch(`/api/departures/${encodeURIComponent(gtfsId)}`)
       .then((r) => {
         if (!r.ok) throw new Error(`API ${r.status}`);
         return r.json() as Promise<Departure[]>;
