@@ -3,7 +3,7 @@ services:
     image: postgis/postgis:16-3.4
     container_name: geo-transit-postgis
     ports:
-      - "5435:5432"
+      - "5437:5432"
     environment:
       POSTGRES_DB: geotransit
       POSTGRES_USER: geoadmin
