@@ -4,8 +4,6 @@ Helsinki public transit map — real-time stop data from the HSL Digitransit API
 
 **Live:** https://geo.artmin.fi
 
-![screenshot placeholder](docs/screenshot.png)
-
 ---
 
 ## Features
