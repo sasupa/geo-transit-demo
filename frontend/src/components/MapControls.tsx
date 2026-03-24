@@ -94,6 +94,8 @@ const Minus = () => (
 const PAN = 150;
 
 export default function MapControls({ mapRef }: Props) {
+  if (window.innerWidth <= 768) return null;
+
   const map = () => mapRef.current;
 
   return (
